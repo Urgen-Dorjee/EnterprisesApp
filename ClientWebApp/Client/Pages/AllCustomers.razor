@@ -1,0 +1,40 @@
+﻿@page "/customers"
+@using Syncfusion.Blazor.Grids
+@using Syncfusion.Blazor.Data
+@using Syncfusion.Blazor;
+@inject HttpClient _httpClient
+
+<div class="col-lg-12 control-section">
+        <div class="content-wrapper">
+            <div class="row">
+                <SfGrid DataSource="@Customers">
+                    <GridColumns>
+                        <GridColumn Field=@nameof(Customer.CustomerId) HeaderText="Customer ID" TextAlign="TextAlign.Right" Width="110"> </GridColumn>
+                        <GridColumn Field=@nameof(Customer.ContactName) HeaderText="Customer Name" Width="110"></GridColumn>
+                        <GridColumn Field=@nameof(Customer.ContactTitle)  Width="110"></GridColumn>
+                        <GridColumn Field=@nameof(Customer.City) Width="110"></GridColumn>
+                        <GridColumn Field=@nameof(Customer.Country) Width="110"></GridColumn>
+                    </GridColumns>
+                </SfGrid>
+            </div>
+        </div>
+    </div>
+@code{
+
+    private List<Customer>? Customers { get; set; } = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        Customers = await _httpClient.GetFromJsonAsync<List<Customer>>("customers");
+    }
+
+    private Query GetOrderQuery(Order value)
+    {
+        return new Query().Where("CustomerId", value.CustomerId);
+    }
+
+    private Query GetCustomerQuery(Customer value)
+    {
+        return new Query().Where("CustomerId", value.CustomerId);
+    }
+}

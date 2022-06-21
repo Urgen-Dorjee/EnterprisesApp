@@ -1,0 +1,21 @@
+﻿@page "/customers/{customerId}"
+@inject HttpClient _httpClient;
+
+
+<div>
+    <p>@Customer!.ContactName</p>
+</div>
+
+
+@code
+{
+    private Customer? Customer { get; set; }
+
+    [Parameter]
+    public string? CustomerId { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Customer = await _httpClient.GetFromJsonAsync<Customer>($"customers/{CustomerId}");
+    }
+}
