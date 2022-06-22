@@ -1,8 +1,8 @@
-﻿using ClientWebApp.Server.Services.ContextService;
+﻿using ClientWebApp.Server.Services.NorthwindContextService;
 using ClientWebApp.Shared.Models;
 using MediatR;
 
-namespace ClientWebApp.Server.Customers.Command
+namespace ClientWebApp.Server.Customers.Command.CreateCustomer
 {
     public record CreateCustomerCommand : IRequest
     {

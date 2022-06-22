@@ -1,4 +1,4 @@
-﻿using ClientWebApp.Server.Services.ContextService;
+﻿using ClientWebApp.Server.Services.NorthwindContextService;
 using ClientWebApp.Shared.Models;
 using MediatR;
 using Microsoft.EntityFrameworkCore;

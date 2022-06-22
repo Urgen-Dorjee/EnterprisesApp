@@ -1,5 +1,5 @@
 using System.Reflection;
-using ClientWebApp.Server.Services.ContextService;
+using ClientWebApp.Server.Services.NorthwindContextService;
 using ClientWebApp.Server.Services.DataService;
 using ClientWebApp.Server.StartRegistrations;
 using ClientWebApp.Server.StartRegistrations.SwaggerConfigurations;

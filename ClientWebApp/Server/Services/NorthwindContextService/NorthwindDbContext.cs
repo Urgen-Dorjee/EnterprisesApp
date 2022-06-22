@@ -2,7 +2,7 @@
 using ClientWebApp.Shared.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace ClientWebApp.Server.Services.ContextService
+namespace ClientWebApp.Server.Services.NorthwindContextService
 {
     public class NorthwindDbContext : DbContext
     {
