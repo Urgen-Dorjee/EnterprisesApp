@@ -1,4 +1,5 @@
 using System.Reflection;
+using ClientWebApp.Server.Exceptions;
 using ClientWebApp.Server.Services.NorthwindContextService;
 using ClientWebApp.Server.Services.DataService;
 using ClientWebApp.Server.StartRegistrations;
@@ -61,9 +62,8 @@ app.UseHttpsRedirection();
 
 app.UseBlazorFrameworkFiles();
 app.UseStaticFiles();
-
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 app.UseRouting();
-
 app.MapRazorPages();
 app.MapControllers();
 app.MapFallbackToFile("index.html");

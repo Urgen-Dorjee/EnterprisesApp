@@ -66,10 +66,10 @@ namespace ClientWebApp.Server.Controllers
         /// <param name="customerId"></param>
         /// <param name="command"></param>
         /// <returns>Returns newly updated customer's data</returns>
-        [HttpPut("/customers/{customerId}", Name = nameof(UpdateCustomerData))]
+        [HttpPut("/customers/{customerId}", Name = nameof(UpdateCustomerRecord))]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<Customer>> UpdateCustomerData(string customerId,
+        public async Task<ActionResult<Customer>> UpdateCustomerRecord(string customerId,
             CustomerUpdateCommand command)
         {
             if(customerId != command.Id) return BadRequest();
@@ -81,10 +81,10 @@ namespace ClientWebApp.Server.Controllers
         /// </summary>
         /// <param name="customerId"></param>
         /// <returns>Returns No Content</returns>
-        [HttpDelete("/customers/{customerId}", Name = nameof(DeleteCustomerData))]
+        [HttpDelete("/customers/{customerId}", Name = nameof(DeleteCustomerRecord))]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult> DeleteCustomerData(string customerId)
+        public async Task<ActionResult> DeleteCustomerRecord(string customerId)
         {
             var delete= await _mediator.Send(new DeleteCustomerCommand { CustomerId = customerId });
             return Ok(delete);
