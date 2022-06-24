@@ -45,14 +45,17 @@ namespace ClientWebApp.Server.Services.NorthwindContextService
                 {
                     case EntityState.Added:
                         entry.Entity.Created = _dateTime.Now;
+                        entry.Entity.CreatedBy = "urgen0240@gmail.com";
                         break;
 
                     case EntityState.Modified:
                         entry.Entity.LastModified = _dateTime.Now;
+                        entry.Entity.LastModifiedBy = "urgen0240@gmail.com";
                         break;
 
                     case EntityState.Deleted:
                         entry.Entity.LastModified = _dateTime.Now;
+                        entry.Entity.LastModifiedBy = "urgen0240@gmail.com";
                         break;
 
                     case EntityState.Detached:

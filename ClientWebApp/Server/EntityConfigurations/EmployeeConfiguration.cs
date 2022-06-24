@@ -17,7 +17,7 @@ public class EmployeeConfiguration : IEntityTypeConfiguration<Employee>
         builder.Property(e => e.HireDate).HasColumnType("datetime");
         builder.Property(e => e.HomePhone).HasMaxLength(24);
         builder.Property(e => e.LastName).IsRequired().HasMaxLength(20);
-        builder.Property(e => e.Notes).HasColumnType("ntext");
+        builder.Property(e => e.Notes).HasColumnType("nvarchar");
         builder.Property(e => e.Photo).HasColumnType("image");
         builder.Property(e => e.PhotoPath).HasMaxLength(255);
         builder.Property(e => e.PostalCode).HasMaxLength(10);

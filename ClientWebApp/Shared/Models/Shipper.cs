@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace ClientWebApp.Shared.Models;
+﻿namespace ClientWebApp.Shared.Models;
 public class Shipper
 {
     public Shipper()

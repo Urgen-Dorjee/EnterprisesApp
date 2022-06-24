@@ -16,5 +16,13 @@ namespace ClientWebApp.Server.Services.DataService
         {
             return await _context.Customers.ToListAsync();
         }
+
+        public async Task<Customer> UpdateCustomerRecord(string customerId, Customer customer)
+        {
+            if (customerId != customer.CustomerId) return customer;
+            _context.Entry(customer).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+            return customer;
+        }
     }
 }
