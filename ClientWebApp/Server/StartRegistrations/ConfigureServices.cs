@@ -1,7 +1,4 @@
-﻿using System.Reflection;
-using MediatR;
-
-namespace ClientWebApp.Server.StartRegistrations
+﻿namespace ClientWebApp.Server.StartRegistrations
 {
     public static class ConfigureServices
     {

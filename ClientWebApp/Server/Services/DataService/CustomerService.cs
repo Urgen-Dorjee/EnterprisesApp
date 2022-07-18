@@ -1,10 +1,6 @@
-﻿using ClientWebApp.Server.Services.NorthwindContextService;
-using ClientWebApp.Shared.Models;
-using Microsoft.EntityFrameworkCore;
-
-namespace ClientWebApp.Server.Services.DataService
+﻿namespace ClientWebApp.Server.Services.DataService
 {
-    public class CustomerService : ICustomerService 
+    public class CustomerService : ICustomerService
     {
         private readonly NorthwindDbContext _context;
 

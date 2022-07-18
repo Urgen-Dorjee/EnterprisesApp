@@ -1,14 +1,3 @@
-using System.Reflection;
-using ClientWebApp.Server.Exceptions;
-using ClientWebApp.Server.Services.NorthwindContextService;
-using ClientWebApp.Server.Services.DataService;
-using ClientWebApp.Server.StartRegistrations;
-using ClientWebApp.Server.StartRegistrations.SwaggerConfigurations;
-using Microsoft.Extensions.Options;
-using Serilog;
-using Swashbuckle.AspNetCore.SwaggerGen;
-using Syncfusion.Blazor;
-
 var builder = WebApplication.CreateBuilder(args);
 
 

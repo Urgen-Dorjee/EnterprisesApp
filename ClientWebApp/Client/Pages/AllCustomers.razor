@@ -1,6 +1,5 @@
 ﻿@page "/customers"
 @using Syncfusion.Blazor.Grids
-@using Syncfusion.Blazor.Data
 @using Syncfusion.Blazor;
 @inject HttpClient _httpClient
 
@@ -28,13 +27,4 @@
         Customers = await _httpClient.GetFromJsonAsync<List<Customer>>("customers");
     }
 
-    private Query GetOrderQuery(Order value)
-    {
-        return new Query().Where("CustomerId", value.CustomerId);
-    }
-
-    private Query GetCustomerQuery(Customer value)
-    {
-        return new Query().Where("CustomerId", value.CustomerId);
-    }
 }

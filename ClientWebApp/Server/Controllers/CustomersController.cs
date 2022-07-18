@@ -1,13 +1,4 @@
-﻿using ClientWebApp.Server.Customers.Command.CreateCustomer;
-using ClientWebApp.Server.Customers.Command.DeleteCustomer;
-using ClientWebApp.Server.Customers.Command.UpdateCustomer;
-using ClientWebApp.Server.Customers.Queries.CustomerDetail;
-using ClientWebApp.Server.Customers.Queries.CustomersList;
-using ClientWebApp.Shared.Models;
-using MediatR;
-using Microsoft.AspNetCore.Mvc;
-
-namespace ClientWebApp.Server.Controllers
+﻿namespace ClientWebApp.Server.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -55,7 +46,7 @@ namespace ClientWebApp.Server.Controllers
         [HttpPost("/customers", Name = nameof(CreateCustomer))]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesDefaultResponseType]
-        public async Task<ActionResult<Customer>> CreateCustomer([FromBody]CreateCustomerCommand command, CancellationToken cancellationToken)
+        public async Task<ActionResult<Customer>> CreateCustomer([FromBody] CreateCustomerCommand command, CancellationToken cancellationToken)
         {
             var customer = await _mediator.Send(command, cancellationToken);
             return Ok(customer);
@@ -63,8 +54,8 @@ namespace ClientWebApp.Server.Controllers
         /// <summary>
         /// { Update Customer existing record in the database }
         /// </summary>
-        /// <param name="customerId"></param>
-        /// <param name="command"></param>
+        /// <param name="customerId">Requires Customer ID to update the record</param>
+        /// <param name="command">It presents all the customer data to be updated</param>
         /// <returns>Returns newly updated customer's data</returns>
         [HttpPut("/customers/{customerId}", Name = nameof(UpdateCustomerRecord))]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -72,21 +63,21 @@ namespace ClientWebApp.Server.Controllers
         public async Task<ActionResult<Customer>> UpdateCustomerRecord(string customerId,
             CustomerUpdateCommand command)
         {
-            if(customerId != command.Id) return BadRequest();
+            if (customerId != command.Id) return BadRequest();
             var customer = await _mediator.Send(command);
             return Ok(customer);
         }
         /// <summary>
         /// {Deleting Existing customer's record from the database }
         /// </summary>
-        /// <param name="customerId"></param>
+        /// <param name="customerId">Requires customer ID to remove the data</param>
         /// <returns>Returns No Content</returns>
         [HttpDelete("/customers/{customerId}", Name = nameof(DeleteCustomerRecord))]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult> DeleteCustomerRecord(string customerId)
         {
-            var delete= await _mediator.Send(new DeleteCustomerCommand { CustomerId = customerId });
+            var delete = await _mediator.Send(new DeleteCustomerCommand { CustomerId = customerId });
             return Ok(delete);
         }
     }

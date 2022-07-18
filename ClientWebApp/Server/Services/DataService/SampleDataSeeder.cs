@@ -1,14 +1,10 @@
-﻿using ClientWebApp.Server.Services.NorthwindContextService;
-using Microsoft.EntityFrameworkCore;
-using ClientWebApp.Shared.Models;
-
-namespace ClientWebApp.Server.Services.DataService
+﻿namespace ClientWebApp.Server.Services.DataService
 {
     public class SampleDataSeeder
     {
 
         private readonly NorthwindDbContext _context;
-        
+
 
         private readonly Dictionary<int, Employee> Employees = new Dictionary<int, Employee>();
         private readonly Dictionary<int, Supplier> Suppliers = new Dictionary<int, Supplier>();

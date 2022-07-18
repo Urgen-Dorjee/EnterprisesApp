@@ -1,8 +1,4 @@
-﻿using ClientWebApp.Server.Services.NorthwindContextService;
-using MediatR;
-using Microsoft.EntityFrameworkCore;
-
-namespace ClientWebApp.Server.Customers.Command.UpdateCustomer
+﻿namespace ClientWebApp.Server.Customers.Command.UpdateCustomer
 {
     public class CustomerUpdateCommand : IRequest
     {

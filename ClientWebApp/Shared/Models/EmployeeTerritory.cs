@@ -1,4 +1,5 @@
 ﻿namespace ClientWebApp.Shared.Models;
+//ReSharper disable all
 public class EmployeeTerritory
 {
     public int EmployeeId { get; set; }

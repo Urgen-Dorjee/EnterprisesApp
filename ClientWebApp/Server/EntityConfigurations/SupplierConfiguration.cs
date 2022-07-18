@@ -1,8 +1,4 @@
-﻿using ClientWebApp.Shared.Models;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-
-namespace ClientWebApp.Server.EntityConfigurations;
+﻿namespace ClientWebApp.Server.EntityConfigurations;
 
 public class SupplierConfiguration : IEntityTypeConfiguration<Supplier>
 {

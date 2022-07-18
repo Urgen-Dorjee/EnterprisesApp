@@ -1,14 +1,10 @@
-﻿using Microsoft.OpenApi.Any;
-using Microsoft.OpenApi.Models;
-using Swashbuckle.AspNetCore.SwaggerGen;
-
-namespace ClientWebApp.Server.StartRegistrations.SwaggerConfigurations
+﻿namespace ClientWebApp.Server.StartRegistrations.SwaggerConfigurations
 {
     public class SwaggerDefaultValues : IOperationFilter
     {
         public void Apply(OpenApiOperation operation, OperationFilterContext context)
         {
-			foreach (var para in operation.Parameters)
+            foreach (var para in operation.Parameters)
             {
                 var desc = context.ApiDescription.ParameterDescriptions
                     .First(p => p.Name == para.Name);
@@ -21,6 +17,6 @@ namespace ClientWebApp.Server.StartRegistrations.SwaggerConfigurations
                 }
                 para.Required |= desc.IsRequired;
             }
-		}
+        }
     }
 }

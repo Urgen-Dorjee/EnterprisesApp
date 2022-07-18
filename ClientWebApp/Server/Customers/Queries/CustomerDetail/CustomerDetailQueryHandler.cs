@@ -1,9 +1,4 @@
-﻿using ClientWebApp.Server.Services.NorthwindContextService;
-using ClientWebApp.Shared.Models;
-using MediatR;
-using Microsoft.EntityFrameworkCore;
-
-namespace ClientWebApp.Server.Customers.Queries.CustomerDetail
+﻿namespace ClientWebApp.Server.Customers.Queries.CustomerDetail
 {
     public class CustomerDetailQueryHandler : IRequestHandler<CustomerDetailQuery, Customer?>
     {
@@ -15,7 +10,7 @@ namespace ClientWebApp.Server.Customers.Queries.CustomerDetail
         }
         public async Task<Customer?> Handle(CustomerDetailQuery request, CancellationToken cancellationToken)
         {
-            return  await _context.Customers.Where(c=>c.CustomerId == request.CustomerId).AsNoTracking().FirstOrDefaultAsync(cancellationToken);
+            return await _context.Customers.Where(c => c.CustomerId == request.CustomerId).AsNoTracking().FirstOrDefaultAsync(cancellationToken);
         }
     }
 }

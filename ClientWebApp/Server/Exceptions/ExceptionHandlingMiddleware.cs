@@ -1,7 +1,4 @@
-﻿using System.Net;
-using System.Text.Json;
-
-namespace ClientWebApp.Server.Exceptions
+﻿namespace ClientWebApp.Server.Exceptions
 {
     public class ExceptionHandlingMiddleware
     {

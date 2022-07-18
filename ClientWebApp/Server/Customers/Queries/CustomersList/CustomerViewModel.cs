@@ -1,6 +1,4 @@
-﻿using ClientWebApp.Shared.Models;
-
-namespace ClientWebApp.Server.Customers.Queries.CustomersList
+﻿namespace ClientWebApp.Server.Customers.Queries.CustomersList
 {
     public class CustomerViewModel
     {

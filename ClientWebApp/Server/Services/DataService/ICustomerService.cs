@@ -1,6 +1,4 @@
-﻿using ClientWebApp.Shared.Models;
-
-namespace ClientWebApp.Server.Services.DataService
+﻿namespace ClientWebApp.Server.Services.DataService
 {
     public interface ICustomerService
     {

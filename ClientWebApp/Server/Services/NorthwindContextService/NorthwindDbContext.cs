@@ -1,14 +1,10 @@
-﻿using ClientWebApp.Server.Services.DataService;
-using ClientWebApp.Shared.Models;
-using Microsoft.EntityFrameworkCore;
-
-namespace ClientWebApp.Server.Services.NorthwindContextService
+﻿namespace ClientWebApp.Server.Services.NorthwindContextService
 {
     public class NorthwindDbContext : DbContext
     {
         private readonly IDateTime _dateTime;
 
-        public NorthwindDbContext(DbContextOptions<NorthwindDbContext> options, IDateTime dateTime) :base(options)
+        public NorthwindDbContext(DbContextOptions<NorthwindDbContext> options, IDateTime dateTime) : base(options)
         {
             _dateTime = dateTime;
         }

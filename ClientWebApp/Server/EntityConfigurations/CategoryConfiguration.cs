@@ -1,8 +1,4 @@
-﻿using ClientWebApp.Shared.Models;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-
-namespace ClientWebApp.Server.EntityConfigurations;
+﻿namespace ClientWebApp.Server.EntityConfigurations;
 
 
 public class CategoryConfiguration : IEntityTypeConfiguration<Category>
@@ -12,7 +8,7 @@ public class CategoryConfiguration : IEntityTypeConfiguration<Category>
 
         builder.Property(e => e.CategoryId).HasColumnName("CategoryID");
         builder.Property(e => e.CategoryName).IsRequired().HasMaxLength(15);
-        builder.Property(e => e.Description).HasColumnType("ntext");
+        builder.Property(e => e.Description).HasColumnType("varchar");
         builder.Property(e => e.Picture).HasColumnType("image");
     }
 }

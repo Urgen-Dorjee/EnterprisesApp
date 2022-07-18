@@ -1,9 +1,4 @@
-﻿using ClientWebApp.Server.Services.NorthwindContextService;
-using ClientWebApp.Shared.Models;
-using MediatR;
-using Microsoft.EntityFrameworkCore;
-
-namespace ClientWebApp.Server.Customers.Queries.CustomersList
+﻿namespace ClientWebApp.Server.Customers.Queries.CustomersList
 {
     public class CustomerListQueryHandler : IRequestHandler<CustomerListQuery, List<Customer>>
     {

@@ -1,7 +1,4 @@
-﻿using ClientWebApp.Server.Services.NorthwindContextService;
-using MediatR;
-using Microsoft.EntityFrameworkCore;
-//ReSharper disable all
+﻿//ReSharper disable all
 
 namespace ClientWebApp.Server.Customers.Command.DeleteCustomer
 {
@@ -24,7 +21,7 @@ namespace ClientWebApp.Server.Customers.Command.DeleteCustomer
         public async Task<Unit> Handle(DeleteCustomerCommand request, CancellationToken cancellationToken)
         {
             var customer = await _context.Customers.Where(c => c.CustomerId == request.CustomerId)
-                .Include(o=>o.Orders)
+                .Include(o => o.Orders)
                 .FirstOrDefaultAsync(cancellationToken);
             if (customer == null)
             {

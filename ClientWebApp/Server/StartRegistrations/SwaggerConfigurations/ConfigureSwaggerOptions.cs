@@ -1,8 +1,4 @@
-﻿using Microsoft.Extensions.Options;
-using Microsoft.OpenApi.Models;
-using Swashbuckle.AspNetCore.SwaggerGen;
-
-namespace ClientWebApp.Server.StartRegistrations.SwaggerConfigurations
+﻿namespace ClientWebApp.Server.StartRegistrations.SwaggerConfigurations
 {
     public class ConfigureSwaggerOptions : IConfigureOptions<SwaggerGenOptions>
     {
@@ -16,7 +12,8 @@ namespace ClientWebApp.Server.StartRegistrations.SwaggerConfigurations
                 {
                     Email = "urgen0240@gmail.com",
                     Name = "URGEN DORJEE"
-                }, License = new OpenApiLicense
+                },
+                License = new OpenApiLicense
                 {
                     Name = "Northwind Trader Server Api registered License"
                 }
