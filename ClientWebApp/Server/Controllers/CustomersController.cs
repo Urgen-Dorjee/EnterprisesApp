@@ -1,16 +1,14 @@
 ﻿namespace ClientWebApp.Server.Controllers
 {
+
     [ApiController]
     [Route("[controller]")]
     [Produces("application/json")]
-    public class CustomersController : ControllerBase
+    public class CustomersController : BaseController
     {
-        private readonly IMediator _mediator;
 
-        public CustomersController(IMediator mediator)
-        {
-            _mediator = mediator;
-        }
+        public CustomersController(IMediator mediator) : base(mediator)
+        {}
 
         /// <summary>
         /// { Display List of Customers Records }
@@ -20,7 +18,7 @@
         [HttpGet("/customers", Name = nameof(GetAllCustomers))]
         public async Task<ActionResult<List<Customer>>> GetAllCustomers([FromQuery] CustomerListQuery customers)
         {
-            return await _mediator.Send(customers);
+            return await _Mediator.Send(customers);
         }
 
         /// <summary>
@@ -34,7 +32,7 @@
         public async Task<ActionResult<Customer?>> GetCustomer(string? customerId)
         {
             if (customerId is null) return BadRequest();
-            return await _mediator.Send(new CustomerDetailQuery { CustomerId = customerId });
+            return await _Mediator.Send(new CustomerDetailQuery { CustomerId = customerId });
         }
 
         /// <summary>
@@ -48,7 +46,7 @@
         [ProducesDefaultResponseType]
         public async Task<ActionResult<Customer>> CreateCustomer([FromBody] CreateCustomerCommand command, CancellationToken cancellationToken)
         {
-            var customer = await _mediator.Send(command, cancellationToken);
+            var customer = await _Mediator.Send(command, cancellationToken);
             return Ok(customer);
         }
         /// <summary>
@@ -64,7 +62,7 @@
             CustomerUpdateCommand command)
         {
             if (customerId != command.Id) return BadRequest();
-            var customer = await _mediator.Send(command);
+            var customer = await _Mediator.Send(command);
             return Ok(customer);
         }
         /// <summary>
@@ -77,7 +75,7 @@
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult> DeleteCustomerRecord(string customerId)
         {
-            var delete = await _mediator.Send(new DeleteCustomerCommand { CustomerId = customerId });
+            var delete = await _Mediator.Send(new DeleteCustomerCommand { CustomerId = customerId });
             return Ok(delete);
         }
     }
