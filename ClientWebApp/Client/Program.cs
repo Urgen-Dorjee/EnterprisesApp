@@ -10,8 +10,6 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 builder.Services.AddSyncfusionBlazor(opt =>
 {
-#pragma warning disable CS0618 // Type or member is obsolete
     opt.IgnoreScriptIsolation = true;
-#pragma warning restore CS0618 // Type or member is obsolete
 });
 await builder.Build().RunAsync();

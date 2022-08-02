@@ -7,7 +7,6 @@ namespace ClientWebApp.Server.Customers.Command.DeleteCustomer
         public string? CustomerId { get; set; }
     }
 
-
     public class DeleteCustomerCommandHandler : IRequestHandler<DeleteCustomerCommand>
     {
         private readonly NorthwindDbContext _context;
